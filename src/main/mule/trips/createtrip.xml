@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:spring="http://www.mulesoft.org/schema/mule/spring" xmlns:java="http://www.mulesoft.org/schema/mule/java"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/java http://www.mulesoft.org/schema/mule/java/current/mule-java.xsd
+http://www.mulesoft.org/schema/mule/spring http://www.mulesoft.org/schema/mule/spring/current/mule-spring.xsd">
+	<sub-flow name="create-tripSub_Flow" doc:id="d947b9c4-ef51-4090-8064-4d9f0419b995" >
+		<logger level="INFO" doc:name="Logger" doc:id="0d20dc7a-226b-4a18-904b-b62a06ecf26d" message="&quot;create trip request with correlation id &quot; #[message.attributes.headers['correlationid'] ]"/>
+		
+		<java:invoke doc:name="Invoke" doc:id="f983cf7e-76e2-4c17-9c0d-532e4df789b8" class="au.com.gp.flightcenter.api.JSONValidator" method="validate(String)" instance="jsonValidator">
+			<java:args ><![CDATA[#[{"arg0" :  payload }]]]></java:args>
+		</java:invoke>
+		<logger level="INFO" doc:name="Logger" doc:id="302d30b6-9095-4a72-b0dc-4ddb3ef23161" message="after java invoke"/>
+	</sub-flow>
+</mule>

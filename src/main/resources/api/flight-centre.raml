@@ -1,0 +1,40 @@
+#%RAML 1.0
+title: Flight Centre
+
+version: 1.0
+baseUri: http://localhost:8090
+
+/flights:
+ post:
+   headers: 
+     correlationid:
+      example: 123dgdfgdfgd
+   body: 
+     application/json:
+       example: !include examples/flights/flight.json
+   responses:
+     201: 
+ /{flightId}:
+ get:
+   body: 
+     application/json:
+       example: !include examples/flights/flight.json          
+
+/trips:
+ post:
+   headers: 
+     correlationid:
+      example: 12334sdfsggf
+   body: 
+     application/json:
+       example: !include examples/trips/trip.json
+ /{tripId}:     
+      
+     
+
+         
+     
+        
+      
+       
+  

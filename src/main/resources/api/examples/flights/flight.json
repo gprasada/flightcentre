@@ -1,0 +1,10 @@
+{
+  "flightId": "AI213",
+  "FlightType": "boeing",
+  "passangerCapacity": 200,
+  "entertainment": [
+    "movies",
+    "music",
+    "books"
+  ]
+}
